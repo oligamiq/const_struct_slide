@@ -9,7 +9,8 @@
 		"docs": "tsc -b && vite build --outDir docs",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"fmt": "biome format --skip-errors --write ."
+		"fmt": "biome format --skip-errors --write .",
+		"deploy": "npm run docs && gh-pages -d docs"
 	},
 	"dependencies": {
 		"@icons-pack/react-simple-icons": "^10.0.0",
@@ -17,6 +18,7 @@
 		"budoux": "^0.6.2",
 		"const_struct_slide": "file:",
 		"eslint-config-prettier": "^9.1.0",
+		"gh-pages": "^6.1.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-reveal-slides": "bouzidanas/react-reveal-slides#fix-theme-loading",
