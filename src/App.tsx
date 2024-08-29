@@ -9,6 +9,7 @@ import "reveal.js/dist/theme/black.css";
 // Plugins
 import RevealNotes from "reveal.js/plugin/notes/notes";
 import RevealZoom from "reveal.js/plugin/zoom/zoom";
+import RevealMultiplexer from "../plugin/reveal-multiplexer/plugin";
 import { loadDefaultJapaneseParser } from "budoux";
 import { useEffect, useRef } from "react";
 
@@ -28,6 +29,10 @@ function App() {
 		}
 	}, []);
 
+    const info = {
+        multiplexer: { identifier: "9084de8f-872e-4201-b983-ef74be5768f8" },
+    };
+
 	return (
 		<div
 			ref={h2Ref}
@@ -36,10 +41,12 @@ function App() {
 		>
 			<RevealSlides
 				controls={false}
-				plugins={[RevealZoom, RevealNotes]}
+				plugins={[RevealZoom, RevealNotes, RevealMultiplexer]}
 				onStateChange={(state) => console.log(state)}
+                multiplex={{ secret: "147", id: "1234", url: "https://reveal-multiplexer.herokuapp.com" }}
                 // view={'scroll'}
                 touch={true}
+                {...info}
 			>
 				<section key="0" data-background-color="#0c1821">
 					<section key="0-0">
