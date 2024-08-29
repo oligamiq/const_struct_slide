@@ -6,11 +6,10 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"docs": "tsc -b && vite build --outDir docs",
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"fmt": "biome format --skip-errors --write .",
-		"deploy": "npm run docs && gh-pages -d docs"
+		"deploy": "npm run build && gh-pages -d dist"
 	},
 	"dependencies": {
 		"@icons-pack/react-simple-icons": "^10.0.0",
