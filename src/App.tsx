@@ -1,5 +1,7 @@
 import { RevealSlides } from "react-reveal-slides";
-import "reveal.js/dist/theme/white.css";
+
+import "reveal.js/dist/theme/black.css";
+// import "reveal.js/dist/theme/white.css";
 
 // import '../node_modules/reveal.js/dist/theme/white.css'
 
@@ -10,13 +12,15 @@ import RevealZoom from "reveal.js/plugin/zoom/zoom";
 import { loadDefaultJapaneseParser } from "budoux";
 import { useEffect, useRef } from "react";
 
+// https://simpleicons.org/
+import { SiBun, SiVite, SiReact, SiBiome, SiRevealdotjs } from '@icons-pack/react-simple-icons';
+
 function App() {
 	const h2Ref = useRef(null);
 
 	useEffect(() => {
 		const h2Elements = h2Ref.current as unknown as HTMLElement;
-		const ele = h2Elements.querySelectorAll("h2");
-
+		const ele = h2Elements.querySelectorAll("h2, p, li") as unknown as HTMLElement[];
 		const parser = loadDefaultJapaneseParser();
 		for (let i = 0; i < ele.length; i++) {
 			console.log(ele[i]);
@@ -34,23 +38,51 @@ function App() {
 				controls={false}
 				plugins={[RevealZoom, RevealNotes]}
 				onStateChange={(state) => console.log(state)}
+                // view={'scroll'}
+                touch={true}
 			>
 				<section key="0" data-background-color="#0c1821">
 					<section key="0-0">
 						<h2>Rustでマクロを用いたまともなライブラリを作った件</h2>
-						<p>Create dynamic Reveal.js slides</p>
+						<p>Presented by @oligamiq</p>
+                        <p>Powered by <br />
+                        bun<SiBun color="#f8eddd" size={"2.5rem"} />
+                        ,vite<SiVite color="default" size={"2.5rem"} />
+                        ,react<SiReact color="default" size={"2.5rem"} />
+                        ,biomejs<SiBiome color="default" size={"2.5rem"} />
+                        ,reveal<SiRevealdotjs color="default" size={"2.5rem"} />
+                        ,BudouX
+                        </p>
 					</section>
 					<section key="0-1">
-						<ul>
-							<li className="fragment">
-								Easily make presentation content dynamic
+                        <p>
+                            このプレゼンに使われているライブラリと軽い説明
+                        </p>
+						<ul className="r-stack">
+							<li className="fragment current-visible">
+                                bun<SiBun color="#f8eddd" size={"2.5rem"} />
+                                <p>高速なnpm alternativeで、パッケージマネージャとして使っている</p>
 							</li>
-							<li className="fragment">
-								Easily add presentations to React apps
+							<li className="fragment current-visible">
+                                vite<SiVite color="default" size={"2.5rem"} />
+                                <p>Reactの開発環境として使っている。開発用サーバを立てられることが利点</p>
 							</li>
-							<li className="fragment">
-								Embed React components inside presentations
+							<li className="fragment current-visible">
+                                react<SiReact color="default" size={"2.5rem"} />
+                                <p>Tsxとコンポーネントを用いて、プレゼンを書きたかったため</p>
 							</li>
+                            <li className="fragment current-visible">
+                                biomejs<SiBiome color="default" size={"2.5rem"} />
+                                <p>linter及びformatterとして使っている。prettierの代わり</p>
+                            </li>
+                            <li className="fragment current-visible">
+                                reveal<SiRevealdotjs color="default" size={"2.5rem"} />
+                                <p>このスライド型のプレゼンを作るために使っている。メインのライブラリ</p>
+                            </li>
+                            <li className="fragment">
+                                BudouX
+                                <p>日本語のテキストを適切に改行するために使っている。このスライドの日本語はこれにより変な場所で改行しない</p>
+                            </li>
 						</ul>
 					</section>
 				</section>

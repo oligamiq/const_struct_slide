@@ -11,6 +11,7 @@
 		"fmt": "biome format --skip-errors --write ."
 	},
 	"dependencies": {
+		"@icons-pack/react-simple-icons": "^10.0.0",
 		"@types/reveal.js": "^5.0.3",
 		"budoux": "^0.6.2",
 		"const_struct_slide": "file:",
