@@ -47,11 +47,11 @@ function App() {
 						<p>Presented by @oligamiq</p>
                         <p>Powered by <br />
                         bun<SiBun color="#f8eddd" size={"2.5rem"} />
-                        ,vite<SiVite color="default" size={"2.5rem"} />
-                        ,react<SiReact color="default" size={"2.5rem"} />
-                        ,biomejs<SiBiome color="default" size={"2.5rem"} />
-                        ,reveal<SiRevealdotjs color="default" size={"2.5rem"} />
-                        ,BudouX
+                        , vite<SiVite color="default" size={"2.5rem"} />
+                        , react<SiReact color="default" size={"2.5rem"} />
+                        , biomejs<SiBiome color="default" size={"2.5rem"} />
+                        , reveal<SiRevealdotjs color="default" size={"2.5rem"} />
+                        , BudouX
                         </p>
 					</section>
 					<section key="0-1">
@@ -88,7 +88,7 @@ function App() {
 				</section>
 				<section key="1" data-background-color="#bf4f41">
 					<section key="1-0">
-						<h2>Free reign over your presentation</h2>
+						<h2>自己紹介</h2>
 						<p>
 							This package makes no efforts to impead or restrict what you can
 							do.

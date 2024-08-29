@@ -21,6 +21,7 @@
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-reveal-slides": "bouzidanas/react-reveal-slides#fix-theme-loading",
+		"react-router-dom": "^6.26.1",
 		"reveal.js": "^5.1.0"
 	},
 	"devDependencies": {
