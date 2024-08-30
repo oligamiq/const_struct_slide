@@ -46,7 +46,6 @@ function App() {
 				controls={false}
 				plugins={[RevealZoom, RevealNotes, RevealMultiplexer]}
 				// onStateChange={(state) => console.log(state)}
-                multiplex={{ secret: "147", id: "1234", url: "https://reveal-multiplexer.herokuapp.com" }}
                 // view={'scroll'}
                 touch={true}
                 {...info}
