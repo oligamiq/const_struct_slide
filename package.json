@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@icons-pack/react-simple-icons": "^10.0.0",
 		"@types/reveal.js": "^5.0.3",
+		"ansi_up": "^6.0.2",
 		"budoux": "^0.6.2",
 		"const_struct_slide": "file:",
 		"eslint-config-prettier": "^9.1.0",
@@ -39,6 +40,7 @@
 		"globals": "^15.9.0",
 		"typescript": "^5.5.3",
 		"typescript-eslint": "^8.0.1",
-		"vite": "^5.4.1"
+		"vite": "^5.4.1",
+		"vite-plugin-wasm": "^3.3.0"
 	}
 }

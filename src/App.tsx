@@ -3,7 +3,11 @@ import { RevealSlides } from "react-reveal-slides";
 import "reveal.js/dist/theme/serif.css";
 // import "reveal.js/plugin/highlight/monokai.css";
 import "./vs.css"
-import RevealHighlight from "reveal.js/plugin/highlight/highlight";
+// import RevealHighlight from "reveal.js/plugin/highlight/highlight";
+
+// @ts-ignore
+import RevealMonaco from "../plugin/monaco/plugin.js";
+
 // import "reveal.js/dist/theme/white.css";
 
 // import '../node_modules/reveal.js/dist/theme/white.css'
@@ -22,6 +26,7 @@ import { SiBun, SiVite, SiReact, SiBiome, SiRevealdotjs, SiGithub, SiX, SiQiita 
 import { Qr } from "./Qr";
 import QRCode from "react-qr-code";
 import { Example1 } from "./codes";
+import { MyCode, MyCodeWithInterpreter } from "./code.js";
 
 function App() {
 	const h2Ref = useRef(null);
@@ -41,6 +46,15 @@ function App() {
             // identifier: "9084de8f-872e-4201-b983-ef74be5768f8"
             identifier: process.env.NODE_ENV === "production" ? "9084de8f-872e-4201-b983-ef74be5768f8" : "f3278ffa-fc59-4a66-bd6e-a957ecf9282d"
         },
+        monaco: {
+            defaultLanguage: 'rust', // optional, defaults to 'javascript'
+            editorOptions: { // optional monaco options as per https://microsoft.github.io/monaco-editor/typedoc/variables/editor.EditorOptions.html
+                automaticLayout: true,
+                // ...
+                scrollBeyondLastLine: false,
+                fontSize: 20
+            }
+        }
     };
 
 	return (
@@ -52,7 +66,12 @@ function App() {
             <Qr />
 			<RevealSlides
 				controls={false}
-				plugins={[RevealZoom, RevealNotes, RevealMultiplexer, RevealHighlight]}
+				plugins={[RevealZoom,
+                    RevealNotes,
+                    RevealMultiplexer,
+                    RevealMonaco,
+                    // RevealHighlight
+                ]}
 				// onStateChange={(state) => console.log(state)}
                 // view={'scroll'}
                 touch={true}
@@ -170,13 +189,20 @@ function App() {
                             />
 						</h2>
 
-                        <div>
-                        <pre><code data-line-numbers="|3,8" data-trim className="language-rust" >
-                            {/* <textarea> */}
-                                {Example1}
-                            {/* </textarea> */}
-                        </code></pre>
-                        </div>
+                        <MyCode value={Example1} />
+					</section>
+					<section key="2-2" data-auto-animate>
+						<h2 data-id="gaiyou">
+                            const genericsについて
+                            <QRCode
+                                href="https://github.com/oligamiq/const_struct"
+                                style={{ height: "auto", maxWidth: "20%", width: "20%" }}
+                                value="https://github.com/oligamiq/const_struct"
+                                viewBox={"0 0 256 256"}
+                            />
+						</h2>
+
+                        <MyCodeWithInterpreter value={'println!("hello world");'} />
 					</section>
                 </section>
 			</RevealSlides>

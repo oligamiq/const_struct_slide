@@ -38,3 +38,10 @@ body {
     transform: translate(-50%, -50%); /* 中央揃え */
     z-index: 9999; /* z-indexを高めに設定して最前面に配置 */
 }
+
+.reveal pre code.monaco {
+    min-height: 50vh;
+    padding: 0;
+    padding-top: 3px;
+    background-color: white;
+}
