@@ -30,7 +30,10 @@ function App() {
 	}, []);
 
     const info = {
-        multiplexer: { identifier: "9084de8f-872e-4201-b983-ef74be5768f8" },
+        multiplexer: {
+            // identifier: "9084de8f-872e-4201-b983-ef74be5768f8"
+            identifier: process.env.NODE_ENV === "production" ? "9084de8f-872e-4201-b983-ef74be5768f8" : "f3278ffa-fc59-4a66-bd6e-a957ecf9282d"
+        },
     };
 
 	return (
@@ -42,7 +45,7 @@ function App() {
 			<RevealSlides
 				controls={false}
 				plugins={[RevealZoom, RevealNotes, RevealMultiplexer]}
-				onStateChange={(state) => console.log(state)}
+				// onStateChange={(state) => console.log(state)}
                 multiplex={{ secret: "147", id: "1234", url: "https://reveal-multiplexer.herokuapp.com" }}
                 // view={'scroll'}
                 touch={true}
