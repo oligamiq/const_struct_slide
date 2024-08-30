@@ -29,3 +29,12 @@ body {
   justify-content: start;
   align-items: center;
 }
+
+.qr-code {
+    position: absolute; /* 必ず最前面に表示させるためにpositionをabsoluteに */
+    top: 17vmin; /* 位置を調整します */
+    left: 17vmin;
+    width: 30vmin; /* サイズを調整します */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    z-index: 9999; /* z-indexを高めに設定して最前面に配置 */
+}

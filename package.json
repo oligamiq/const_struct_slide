@@ -18,8 +18,11 @@
 		"const_struct_slide": "file:",
 		"eslint-config-prettier": "^9.1.0",
 		"gh-pages": "^6.1.1",
+		"highlight.js": "^11.10.0",
+		"ngx-qrcode-styling": "^1.3.2",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+		"react-qr-code": "^2.0.15",
 		"react-reveal-slides": "bouzidanas/react-reveal-slides#fix-theme-loading",
 		"react-router-dom": "^6.26.1",
 		"reveal.js": "^5.1.0"
