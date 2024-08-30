@@ -11,9 +11,22 @@ fn main() {
 `;
 
 export const Example2 = `
+#[derive(Debug)]
 struct Foo<const N: usize>([i32; N]);
 
-fn main() {
-    let _ = Foo([0; 3]);
+let s = Foo([9,5,61,44]);
+dbg!(s);
+`;
+
+export const Example3 = `
+#[derive(ConstStruct, Debug)]
+struct Foo{
+    a: i32,
+};
+
+pub fn tester<A: FooTy>() {
+    println!("a: {:?}", A::__DATA);
 }
+
+tester::<Foo!(Foo { a:6 })>();
 `;

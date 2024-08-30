@@ -25,7 +25,7 @@ import { useEffect, useRef } from "react";
 import { SiBun, SiVite, SiReact, SiBiome, SiRevealdotjs, SiGithub, SiX, SiQiita } from '@icons-pack/react-simple-icons';
 import { Qr } from "./Qr";
 import QRCode from "react-qr-code";
-import { Example1 } from "./codes";
+import { Example1, Example2, Example3 } from "./codes";
 import { MyCode, MyCodeWithInterpreter } from "./code.js";
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
                 automaticLayout: true,
                 // ...
                 scrollBeyondLastLine: false,
-                fontSize: 20
+                fontSize: "30vh"
             }
         }
     };
@@ -202,7 +202,20 @@ function App() {
                             />
 						</h2>
 
-                        <MyCodeWithInterpreter value={'println!("hello world");'} />
+                        <MyCodeWithInterpreter value={Example2} />
+					</section>
+					<section key="2-3" data-auto-animate>
+						<h2 data-id="gaiyou">
+                            const genericsについて
+                            <QRCode
+                                href="https://github.com/oligamiq/const_struct"
+                                style={{ height: "auto", maxWidth: "20%", width: "20%" }}
+                                value="https://github.com/oligamiq/const_struct"
+                                viewBox={"0 0 256 256"}
+                            />
+						</h2>
+
+                        <MyCode value={Example3} />
 					</section>
                 </section>
 			</RevealSlides>

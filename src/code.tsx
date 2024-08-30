@@ -50,6 +50,14 @@ export const MyCodeWithInterpreter = (props: {
         interpreter.onResult(result => {
             console.log("Result", result);
             const resultElement = TerminalRef.current;
+
+            // もし500文字より少ないなら、フォントサイズを上げる
+            if (result.length < 500) {
+                (resultElement as unknown as HTMLDivElement).style.fontSize = "3rem";
+            } else {
+                (resultElement as unknown as HTMLDivElement).style.fontSize = "1rem";
+            }
+
             // biome-ignore lint/suspicious/noExplicitAny: <explanation>
             (resultElement as any).innerHTML = ansiUp.ansi_to_html(result.replaceAll("\n", "\r"));
             const runButton = runButtonRef.current as unknown as HTMLButtonElement;
@@ -57,7 +65,6 @@ export const MyCodeWithInterpreter = (props: {
                 return;
             }
             runButton.disabled = false;
-
         });
 
         interpreter.onLoaded(() => {
@@ -79,14 +86,12 @@ export const MyCodeWithInterpreter = (props: {
         });
     })
 
-    return <div><pre><code data-line-numbers="|3,8" data-trim className="monaco language-rust">
+    return <div><pre><code data-line-numbers="|3,8" data-trim className="monaco language-rust monaco_with">
         <script type="text/template">{value}</script>
     </code></pre>
-    <div ref={TerminalRef} className="result" style={{
-        fontSize: "1rem",
-    }}>
-    </div>
-    <button ref={runButtonRef} onClick={() => {
+    <button style={{
+        height: "2rem"
+    }} ref={runButtonRef} onClick={() => {
         const runButton = runButtonRef.current as unknown as HTMLButtonElement;
         if (!runButton) {
             return;
@@ -95,5 +100,9 @@ export const MyCodeWithInterpreter = (props: {
         console.log("innerText!!", innerText);
         interpreter.run(innerText);
     }}>Run</button>
+    <div ref={TerminalRef} className="result" style={{
+        fontSize: "3rem",
+    }}>
+    </div>
     </div>
 }

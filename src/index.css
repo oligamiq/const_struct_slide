@@ -40,7 +40,14 @@ body {
 }
 
 .reveal pre code.monaco {
-    min-height: 50vh;
+    min-height: 60vh;
+    padding: 0;
+    padding-top: 3px;
+    background-color: white;
+}
+
+.reveal pre code.monaco_with {
+    min-height: 30vh;
     padding: 0;
     padding-top: 3px;
     background-color: white;
